@@ -20,12 +20,17 @@ class User implements UserInterface
     private ?int $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="json")
+     */
+    private array $roles = [];
+
+    /**
+     * @ORM\Column(type="string", length=64, unique=true)
      */
     private ?string $username;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, unique=true)
      */
     private ?string $email;
 
@@ -80,7 +85,18 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        // TODO: Implement getRoles() method.
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     /**
@@ -88,7 +104,8 @@ class User implements UserInterface
      */
     public function getSalt(): ?string
     {
-        // TODO: Implement getSalt() method.
+        // not needed when using the "bcrypt" algorithm in security.yaml
+        return null;
     }
 
     /**
@@ -96,6 +113,7 @@ class User implements UserInterface
      */
     public function eraseCredentials(): void
     {
-        // TODO: Implement eraseCredentials() method.
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
