@@ -1,16 +1,16 @@
 # ocean
 Projet Commun : Jeu de l'eau
 
-##Requirements
+## Requirements
 
-###System
+### System
 - PHP 7
 
-###App
+### App
 - Symfony
 - ReactJS
 
-##Get start
+## Get start
 
-###Symfony app
+### Symfony app
 - `symfony server:start -d`
