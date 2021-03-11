@@ -38,6 +38,11 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @ORM\Column(type="string", length=64, unique=true)
+     */
+    private ?string $username;
+
+    /**
      * @ORM\ManyToMany(targetEntity=Fish::class, inversedBy="users")
      */
     private $fishes;
@@ -68,11 +73,7 @@ class User implements UserInterface
     public function getId(): ?int
     {
         return $this->id;
-
-    /**
-     * @ORM\Column(type="string", length=64, unique=true)
-     */
-    private ?string $username;
+    }
 
     /**
      * A visual identifier that represents this user.
