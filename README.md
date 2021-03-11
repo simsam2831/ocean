@@ -1,6 +1,9 @@
 # ocean
 Projet Commun : Jeu de l'eau
 
+## Class diagram
+![image](./classDiagram.png)
+
 ## Requirements
 
 ### System
