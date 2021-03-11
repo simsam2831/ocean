@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TokenRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,43 +22,63 @@ class Token
     /**
      * @ORM\Column(type="integer")
      */
-    private $price;
+    private $priceToken;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $image;
+    private $imageToken;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     private $color;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Event::class, inversedBy="tokens")
+     */
+    private $event;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="tokens")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="tokens")
+     */
+    private $game;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPrice(): ?int
+    public function getPriceToken(): ?int
     {
-        return $this->price;
+        return $this->priceToken;
     }
 
-    public function setPrice(int $price): self
+    public function setPriceToken(int $priceToken): self
     {
-        $this->price = $price;
+        $this->priceToken = $priceToken;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImageToken(): ?string
     {
-        return $this->image;
+        return $this->imageToken;
     }
 
-    public function setImage(string $image): self
+    public function setImageToken(string $imageToken): self
     {
-        $this->image = $image;
+        $this->imageToken = $imageToken;
 
         return $this;
     }
@@ -66,9 +88,60 @@ class Token
         return $this->color;
     }
 
-    public function setColor(string $color): self
+    public function setColor(?string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addToken($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeToken($this);
+        }
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
 
         return $this;
     }
