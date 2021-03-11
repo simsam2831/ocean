@@ -32,10 +32,14 @@
                         <div class="container overflow-hidden">
                             <div class="row gx-5">
                                 <div class="col">
-                                    <div class="p-3 border bg-light"><i class="far fa-question-circle fa-3x" id="question"></i></div>
+                                    <i class="far fa-question-circle fa-3x" id="question"></i>
                                 </div>
                                 <div class="col">
-                                    <div class="p-3 border bg-light"><i class="fas fa-user-circle fa-3x" id="user"></i></div>
+                                            {% if app.user %}
+                                                <a href="{{ path("home") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></p></a>
+                                            {% endif %}
+
+                                    <a href="{{ path("home") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
                                 </div>
                             </div>
                         </div>
