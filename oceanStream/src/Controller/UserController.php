@@ -44,7 +44,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'Inscription réussie !');
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('menu');
         }
 
         return $this->render('user/create.html.twig', [

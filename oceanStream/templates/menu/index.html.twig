@@ -3,10 +3,11 @@
 {% block title %}Menu{% endblock %}
 
 {% block body %}
-
     <center>
         <div class="menu">
-
+            <img src="{{ absolute_url(asset('asset/img/logo.png')) }}" alt="Logo">
+            <br>
+            <h1>Jeu de l'eau</h1>
             <div class="btn-group-vertical">
 
                 <a type="button" class="btn btn-primary" href="{{ path('home') }}">Nouvelle partie</a>
