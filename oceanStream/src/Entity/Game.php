@@ -40,6 +40,26 @@ class Game
      */
     private $board;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mode;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nbPlayers;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPending;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $globalTurn;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -141,6 +161,54 @@ class Game
     public function setBoard(?Board $board): self
     {
         $this->board = $board;
+
+        return $this;
+    }
+
+    public function getMode(): ?string
+    {
+        return $this->mode;
+    }
+
+    public function setMode(string $mode): self
+    {
+        $this->mode = $mode;
+
+        return $this;
+    }
+
+    public function getNbPlayers(): ?int
+    {
+        return $this->nbPlayers;
+    }
+
+    public function setNbPlayers(int $nbPlayers): self
+    {
+        $this->nbPlayers = $nbPlayers;
+
+        return $this;
+    }
+
+    public function getIsPending(): ?bool
+    {
+        return $this->isPending;
+    }
+
+    public function setIsPending(bool $isPending): self
+    {
+        $this->isPending = $isPending;
+
+        return $this;
+    }
+
+    public function getGlobalTurn(): ?int
+    {
+        return $this->globalTurn;
+    }
+
+    public function setGlobalTurn(int $globalTurn): self
+    {
+        $this->globalTurn = $globalTurn;
 
         return $this;
     }
