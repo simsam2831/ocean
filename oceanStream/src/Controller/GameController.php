@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use App\Form\GameType;
+use App\Form\SelectModeType;
 use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,48 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class GameController extends AbstractController
 {
+    /**
+     * @Route("/select/mode", name="select_mode", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function selectMode(Request $request): Response
+    {
+        $game = new Game();
+        $form = $this->createForm(SelectModeType::class, $game);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('select_nb_players', ['game' => $game]);
+        }
+
+        return $this->render('game/select_mode.html.twig', [
+            'game' => $game,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/select/nb_players", name="select_nb_players", methods={"GET","POST"})
+     * @param Request $request
+     * @param Game $game
+     * @return Response
+     */
+    public function selectNbPlayers(Request $request, Game $game): Response
+    {
+        $form = $this->createForm(SelectNbPlayersType::class, $game);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('game_create', ['game' => $game]);
+        }
+
+        return $this->render('game/select_nb_players.html.twig', [
+            'game' => $game,
+            'form' => $form->createView(),
+        ]);
+    }
+
     /**
      * @Route("/", name="game_index", methods={"GET"})
      * @param GameRepository $gameRepository
@@ -28,28 +71,20 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/create", name="game_create", methods={"GET","POST"})
-     * @param Request $request
+     * @Route("/create", name="game_create", methods={"GET"})
+     * @param Game $game
      * @return Response
      */
-    public function create(Request $request): Response
+    public function create(Game $game): Response
     {
-        $game = new Game();
-        $form = $this->createForm(GameType::class, $game);
-        $form->handleRequest($request);
+        $game->setPending(false);
+        $game->setGlobalTurn(1);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($game);
-            $entityManager->flush();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($game);
+        $entityManager->flush();
 
-            return $this->redirectToRoute('game_index');
-        }
-
-        return $this->render('game/create.html.twig', [
-            'game' => $game,
-            'form' => $form->createView(),
-        ]);
+        return $this->redirectToRoute('game_play');
     }
 
     /**
