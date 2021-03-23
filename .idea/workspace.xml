@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5852f5f-cbce-48f9-b5d1-03ddfdc3d03c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/oceanStream.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oceanStream/migrations/Version20210323195908.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishEventFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/QuestionEventFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/SpecialEventFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oceanStream/migrations/Version20210311100059.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/migrations/Version20210311100059.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/migrations/Version20210323175124.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BoardFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BoardFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/GameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/GameFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/Entity/FishEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/Entity/FishEvent.php" afterDir="false" />
@@ -163,7 +175,7 @@
       <workItem from="1616484736364" duration="4234000" />
       <workItem from="1616518105958" duration="1352000" />
       <workItem from="1616519643682" duration="1145000" />
-      <workItem from="1616520825326" duration="5423000" />
+      <workItem from="1616520825326" duration="5750000" />
     </task>
     <task id="LOCAL-00001" summary="maj diagramme">
       <created>1616519128787</created>
@@ -192,6 +204,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maj diagramme" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj diagramme" />
+    <MESSAGE value="database &amp; fixtures" />
+    <option name="LAST_COMMIT_MESSAGE" value="database &amp; fixtures" />
   </component>
 </project>
