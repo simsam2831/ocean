@@ -10,7 +10,7 @@ class MenuController extends AbstractController
 {
 
     /**
-     * @Route("/", name="menu")
+     * @Route("/menu", name="menu")
      */
     public function index(): Response
     {
