@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210311100059 extends AbstractMigration
+final class Version20210323175124 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -26,7 +26,7 @@ final class Version20210311100059 extends AbstractMigration
         $this->addSql('CREATE TABLE `event` (id INT AUTO_INCREMENT NOT NULL, board_id INT NOT NULL, name_event VARCHAR(64) NOT NULL, description_event LONGTEXT NOT NULL, type VARCHAR(255) NOT NULL, INDEX IDX_3BAE0AA7E7EC5785 (board_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE fish (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(64) NOT NULL, family VARCHAR(64) NOT NULL, quantity INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE fish_event (id INT NOT NULL, fish_id INT NOT NULL, fish_quality INT NOT NULL, INDEX IDX_5561F8D78311A1E2 (fish_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE game (id INT AUTO_INCREMENT NOT NULL, board_id INT NOT NULL, INDEX IDX_232B318CE7EC5785 (board_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE game (id INT AUTO_INCREMENT NOT NULL, board_id INT NOT NULL, mode VARCHAR(255) NOT NULL, nb_players INT NOT NULL, is_pending TINYINT(1) NOT NULL, global_turn INT NOT NULL, INDEX IDX_232B318CE7EC5785 (board_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE game_bot (game_id INT NOT NULL, bot_id INT NOT NULL, INDEX IDX_1A4517D4E48FD905 (game_id), INDEX IDX_1A4517D492C1C487 (bot_id), PRIMARY KEY(game_id, bot_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE map (id INT AUTO_INCREMENT NOT NULL, price INT NOT NULL, image VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE question_event (id INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
