@@ -16,6 +16,7 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        
         $error = '';
 
         // get the login error if there is one
