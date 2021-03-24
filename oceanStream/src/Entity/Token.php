@@ -45,9 +45,16 @@ class Token
     private $users;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="tokens")
+     * @ORM\Column(type="string", length=64)
      */
-    private $game;
+    private $family;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSelected;
+
+
 
     public function __construct()
     {
@@ -134,15 +141,28 @@ class Token
         return $this;
     }
 
-    public function getGame(): ?Game
+    public function getFamily(): ?string
     {
-        return $this->game;
+        return $this->family;
     }
 
-    public function setGame(?Game $game): self
+    public function setFamily(string $family): self
     {
-        $this->game = $game;
+        $this->family = $family;
 
         return $this;
     }
+
+    public function getIsSelected(): ?bool
+    {
+        return $this->isSelected;
+    }
+
+    public function setIsSelected(bool $isSelected): self
+    {
+        $this->isSelected = $isSelected;
+
+        return $this;
+    }
+
 }

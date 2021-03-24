@@ -34,6 +34,11 @@ class Bot
      */
     private $games;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBotControlled;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
@@ -91,6 +96,18 @@ class Bot
         if ($this->games->removeElement($game)) {
             $game->removeBot($this);
         }
+
+        return $this;
+    }
+
+    public function getIsBotControlled(): ?bool
+    {
+        return $this->isBotControlled;
+    }
+
+    public function setIsBotControlled(bool $isBotControlled): self
+    {
+        $this->isBotControlled = $isBotControlled;
 
         return $this;
     }

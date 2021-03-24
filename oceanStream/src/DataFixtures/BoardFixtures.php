@@ -10,11 +10,13 @@ class BoardFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $board = new Board();
+        for($i=0;$i<3;$i++)
+        {
+            $board=new Board();
+            $this->setReference('board_'.$i, $board);
 
-        $this->setReference('board_1', $board);
-
-        $manager->persist($board);
+            $manager->persist($board);
+        }
 
         $manager->flush();
     }

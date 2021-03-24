@@ -11,7 +11,7 @@ class AnswerPropositionFixtures extends Fixture implements DependentFixtureInter
 {
     public function load(ObjectManager $manager)
     {
-        $answerPropositions = array();
+
         for($i = 0; $i < 60; $i++){
             $answerProposition = new AnswerProposition();
             $answerProposition->setFish($this->getReference('fish_' . rand(0, 14)))
@@ -27,7 +27,6 @@ class AnswerPropositionFixtures extends Fixture implements DependentFixtureInter
             }
 
             $manager->persist($answerProposition);
-            array_push($answerPropositions, $answerProposition);
         }
 
         $manager->flush();
