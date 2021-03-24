@@ -11,28 +11,20 @@ class FishEventFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $fishEvents = array();
-        for($i = 0; $i < 40; $i++){
-            $fishEvent = new FishEvent();
-            $fishEvent->setBoard($this->getReference('Board 1'))
-                ->setNameEvent('Evenement Poisson n°' . $i)
-                ->setDescriptionEvent('Des poissons et encore des poissons la vie n\'est-elle pas 
-                    belle ?')
-                ->setFishQuality($i);
+        for($j = 0; $j < 3; $j++)
+        {
+            for($i = 0; $i < 40; $i++){
+                $fishEvent = new FishEvent();
+                $fishEvent->setNameEvent('Evenement Poisson n°' . $i)
+                    ->setDescriptionEvent('Des poissons et encore des poissons la vie n\'est-elle pas 
+                        belle ?')
+                    ->setFishQuantity(rand(0,5))
+                    ->setFish($this->getReference('fish_' . rand(0, 14)))
+                    ->setBoard($this->getReference('board_'.$j));
 
-            if($i < 15){
-                $fishEvent->setFish($this->getReference('fish_' . $i));
+                $manager->persist($fishEvent);
             }
-            elseif($i < 30){
-                $fishEvent->setFish($this->getReference('fish_' . ($i - 15)));
-            }else{
-                $fishEvent->setFish($this->getReference('fish_' . ($i - 30)));
-            }
-            $manager->persist($fishEvent);
-            array_push($fishEvents, $fishEvent);
         }
-
-
 
         $manager->flush();
     }

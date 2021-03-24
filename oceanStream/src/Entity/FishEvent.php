@@ -40,7 +40,7 @@ class FishEvent extends Event
 
     public function setFishQuantity(int $fishQuantity): self
     {
-        $this->fishQuantity = fishQuantity;
+        $this->fishQuantity = $fishQuantity;
 
         return $this;
     }
