@@ -20,7 +20,7 @@ class FishEvent extends Event
     /**
      * @ORM\Column(type="integer")
      */
-    private $fishQuality;
+    private $fishQuantity;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fish::class, inversedBy="fishEvent")
@@ -33,14 +33,14 @@ class FishEvent extends Event
         return $this->id;
     }
 
-    public function getFishQuality(): ?int
+    public function getFishQuantity(): ?int
     {
-        return $this->fishQuality;
+        return $this->fishQuantity;
     }
 
-    public function setFishQuality(int $fishQuality): self
+    public function setFishQuantity(int $fishQuantity): self
     {
-        $this->fishQuality = $fishQuality;
+        $this->fishQuantity = $fishQuantity;
 
         return $this;
     }

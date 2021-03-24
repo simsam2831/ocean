@@ -11,15 +11,18 @@ class GameFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $games = array();
+
         for($i = 0; $i < 3; $i++){
             $game = new Game();
-            $game->setBoard($this->getReference('Board_1'));
+            $game->setBoard($this->getReference('board_'.$i))
+                ->setGlobalTurn(0)
+                ->setIsPending(false)
+                ->setMode('classic')
+                ->setNbPlayers(4);
 
             $this->setReference('game_' . $i, $game);
 
             $manager->persist($game);
-            array_push($games, $game);
         }
         $manager->flush();
     }
