@@ -11,7 +11,6 @@ Projet Commun : Jeu de l'eau
 
 ### App
 - Symfony
-- ReactJS
 
 ## Get start
 
