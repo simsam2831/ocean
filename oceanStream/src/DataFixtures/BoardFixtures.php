@@ -14,6 +14,8 @@ class BoardFixtures extends Fixture
 
         $this->setReference('Board 1', $board);
 
+        $manager->persist($board);
+
         $manager->flush();
     }
 }
