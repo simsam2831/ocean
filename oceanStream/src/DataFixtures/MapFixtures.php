@@ -2,15 +2,19 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Map;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class AppFixtures extends Fixture
+class MapFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $map = new Map();
+        $map->setPrice(200)
+            ->setImage('./assets/img/fondDefault.png');
+
+        $manager->persist($map);
 
         $manager->flush();
     }
