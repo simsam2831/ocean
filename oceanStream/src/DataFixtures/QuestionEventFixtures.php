@@ -15,10 +15,12 @@ class QuestionEventFixtures extends Fixture implements DependentFixtureInterface
         $questionEvents = array();
         for($i = 0; $i < 20; $i++){
             $questionEvent = new QuestionEvent();
-            $questionEvent->setNameEvent('Evenèment qusetion n°' . $i)
+            $questionEvent->setNameEvent('Evénement qusetion n°' . $i)
                 ->setDescriptionEvent('Des descriptions pour faire occuper de la place. 
                     Ceci est le n°' . $i)
-                ->setBoard($this->getReference('Board 1'));
+                ->setBoard($this->getReference('board_1'));
+
+            $this->setReference('questionEvent_' . $i, $questionEvent);
 
             array_push($questionEvents, $questionEvent);
             $manager->persist($questionEvent);

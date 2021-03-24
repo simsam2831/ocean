@@ -2,24 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5852f5f-cbce-48f9-b5d1-03ddfdc3d03c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/oceanStream.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oceanStream/migrations/Version20210323195908.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishEventFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/QuestionEventFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/SpecialEventFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oceanStream/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oceanStream/migrations/Version20210311100059.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/migrations/Version20210323175124.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap-theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap-theme.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap-theme.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap-theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap-theme.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/font/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/font/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/font/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/font/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/font/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/font/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/font/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/font/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/img/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/img/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/img/fondDefaut.png" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/img/fondDefaut.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/js/jquery.ajaxchimp.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/js/jquery.ajaxchimp.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/js/jquery.placeholder.js" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/js/jquery.placeholder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/public/asset/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/public/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/AppFixtures.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BoardFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BoardFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BotFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/BotFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishEventFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/FishEventFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/GameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/GameFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/QuestionEventFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/QuestionEventFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/src/DataFixtures/SpecialEventFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/DataFixtures/SpecialEventFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oceanStream/src/Entity/FishEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/Entity/FishEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oceanStream/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/src/Entity/Game.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oceanStream/templates/menu/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/oceanStream/templates/menu/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,9 +163,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ConfinementClassroom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
@@ -175,7 +190,8 @@
       <workItem from="1616484736364" duration="4234000" />
       <workItem from="1616518105958" duration="1352000" />
       <workItem from="1616519643682" duration="1145000" />
-      <workItem from="1616520825326" duration="5750000" />
+      <workItem from="1616520825326" duration="6281000" />
+      <workItem from="1616571756744" duration="4399000" />
     </task>
     <task id="LOCAL-00001" summary="maj diagramme">
       <created>1616519128787</created>
@@ -184,7 +200,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616519128787</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="database &amp; fixtures">
+      <created>1616529829824</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616529829824</updated>
+    </task>
+    <task id="LOCAL-00003" summary="database &amp; fixtures">
+      <created>1616529949534</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616529949534</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

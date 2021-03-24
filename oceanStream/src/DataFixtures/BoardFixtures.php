@@ -12,7 +12,7 @@ class BoardFixtures extends Fixture
     {
         $board = new Board();
 
-        $this->setReference('Board 1', $board);
+        $this->setReference('board_1', $board);
 
         $manager->persist($board);
 

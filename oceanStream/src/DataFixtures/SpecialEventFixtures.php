@@ -12,7 +12,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $start = new SpecialEvent();
-        $start->setBoard($this->getReference('Board 1'))
+        $start->setBoard($this->getReference('board_1'))
             ->setDescriptionEvent('Je suis la case départ&arrivé !')
             ->setNameEvent('Case départ')
             ->setIsBlooked(false)
@@ -21,7 +21,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($start);
 
         $bermudes = new SpecialEvent();
-        $bermudes->setBoard($this->getReference('Board 1'))
+        $bermudes->setBoard($this->getReference('board_1'))
             ->setDescriptionEvent('On raconte que la Cité perdue d\'Atlantide est quelque part ici. 
                 Mais beaucoup y perde la vie en s\'aventurant dans ces eaux. Peut-être vous êtes le suivant ?')
             ->setNameEvent('Triangle des Bermudes')
@@ -31,7 +31,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($bermudes);
 
         $gbc = new SpecialEvent();
-        $gbc->setBoard($this->getReference('Board 1'))
+        $gbc->setBoard($this->getReference('board_1'))
             ->setDescriptionEvent('L\'immanquable ! Comment passer à côté de cette 
                 merveille de la nature ?')
             ->setNameEvent('La Grande Barrière de Corail')
@@ -41,7 +41,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($gbc);
 
         $roadToAdventure = new SpecialEvent();
-        $roadToAdventure->setBoard($this->getReference('Board 1'))
+        $roadToAdventure->setBoard($this->getReference('board_1'))
             ->setDescriptionEvent('Pssst... Hey ! Vous là-bas ! Oui c\'est de toi dont je parle. 
                 Un raccourci ?')
             ->setNameEvent('Tout droit vers l\'aventure !')
