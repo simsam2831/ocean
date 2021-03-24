@@ -17,7 +17,18 @@ class QuestionEvent extends Event
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private ?string $category;
+
+    private const HISTORY = 'Histoire';
+    private const GEOGRAPHY = 'Géographie';
+    private const NATURE = 'Nature';
+    private const ENIGMA = 'Enigme';
+    private const POLLUTION = 'Pollution';
 
     /**
      * @ORM\OneToMany(targetEntity=AnswerProposition::class, mappedBy="questionEvent", orphanRemoval=true)
@@ -33,6 +44,21 @@ class QuestionEvent extends Event
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        if (!in_array($category, array(self::HISTORY, self::GEOGRAPHY,self::NATURE, self::ENIGMA ,self::POLLUTION))) {
+            throw new \InvalidArgumentException("Invalid category");
+        }
+        $this->category = $category;
+
+        return $this;
     }
 
     /**
