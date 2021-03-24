@@ -138,4 +138,15 @@ class GameController extends AbstractController
 
         return $this->redirectToRoute('game_index');
     }
+
+    /**
+     * @Route("/gameBase", name="gameBase")
+     * @param GameRepository $gameRepository
+     *
+     */
+    public function viewbase(GameRepository $gameRepository): Response
+    {
+        return $this->render('game/gameBase.html.twig', [
+        ]);
+    }
 }
