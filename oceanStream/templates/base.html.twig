@@ -24,8 +24,9 @@
                             {% if app.user %}
                                 <a href="{{ path("user_index") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></a>
                             {% endif %}
-
-                            <a href="{{ path("home") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
+                            {% if not app.user %}
+                                <a href="{{ path("home") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
