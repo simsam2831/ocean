@@ -40,8 +40,10 @@
                                             {% if app.user %}
                                                 <a href="{{ path("user_index") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></p></a>
                                             {% endif %}
+                                    {% if not app.user %}
+                                        <a href="{{ path("app_login") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
+                                    {% endif %}
 
-                                    <a href="{{ path("app_login") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
                                 </div>
                             </div>
                         </div>
