@@ -28,7 +28,7 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('select_nb_players', ['game' => $game]);
+            return $this->redirectToRoute('select_nb_player', ['game' => $game]);
         }
 
         return $this->render('game/select_mode.html.twig', [
