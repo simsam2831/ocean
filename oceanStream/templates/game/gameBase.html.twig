@@ -21,6 +21,28 @@
     #user{
         float : right;
     }
+
+    .carre_fond {
+        position:fixed;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin : auto;
+        background: #2935ba;
+    }
+
+    .carre_choix {
+        position:absolute;
+        left: 80%;
+        top: 80%;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        background: #1b63cd;
+    }
+
+
 </style>
 
 <body>
@@ -54,7 +76,12 @@
 
         <br>
 
-        {% block body %}{% endblock %}
+        {% block body %}
+            <body>
+                <div class="carre_fond"></div>
+                <div class="carre_choix"></div>
+            </body>
+        {% endblock %}
 
         <br>
     </div>
