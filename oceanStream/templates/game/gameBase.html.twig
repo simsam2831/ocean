@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>{% block title %}GameBase !{% endblock %}</title>
     <script src="https://kit.fontawesome.com/316d042b66.js" crossorigin="anonymous"></script>
+    <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
 
     {% block stylesheets %}
-        <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" />
     {% endblock %}
 
     {% block javascripts %}
