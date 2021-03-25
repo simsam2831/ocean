@@ -2,21 +2,41 @@
 
 {% block title %}Menu{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
     <center>
         <div class="menu">
-            <img src="{{ absolute_url(assets('assets/img/logo.png')) }}" alt="Logo">
+            <img src="{{ absolute_url(asset('assets/img/logo.png')) }}" alt="Logo">
+            <!--<h1 id="jeuDeLeau">Jeu de l'eau</h1>-->
+
+            <span class="back">
+                <span>J</span>
+                <span>e</span>
+                <span>u</span>
+                <span> </span>
+                <span>d</span>
+                <span>e</span>
+                <span> </span>
+                <span>l</span>
+                <span>'</span>
+                <span>e</span>
+                <span>a</span>
+                <span>u</span>
+            </span>
+
             <br>
-            <h1>Jeu de l'eau</h1>
             <div class="btn-group-vertical">
 
-                <a type="button" class="btn btn-primary" href="{{ path('home') }}">Nouvelle partie</a>
+                <a type="button" class="btn btn-menu" href="{{ path('home') }}">Nouvelle partie</a>
                 <br>
-                <a type="button" class="btn btn-primary" href="{{ path('home') }}">Charger partie</a>
+                <a type="button" class="btn btn-menu" href="{{ path('home') }}">Charger partie</a>
                 <br>
-                <a type="button" class="btn btn-primary" href="{{ path('home') }}">Rejoindre en ligne</a>
+                <a type="button" class="btn btn-menu" href="{{ path('home') }}">Rejoindre en ligne</a>
                 <br>
-                <a type="button" class="btn btn-primary" href="{{ path('home') }}">Boutique</a>
+                <a type="button" class="btn btn-menu" href="{{ path('home') }}">Boutique</a>
 
             </div>
 

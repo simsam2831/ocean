@@ -10,7 +10,7 @@ class FishFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $fishes = array();
+
         for($i = 0; $i < 15; $i++){
             $fish = new Fish();
             $fish->setName('Poisson n°' . $i)
@@ -20,7 +20,6 @@ class FishFixtures extends Fixture
             $this->setReference('fish_' . $i, $fish);
 
             $manager->persist($fish);
-            array_push($fishes, $fish);
         }
 
         $manager->flush();

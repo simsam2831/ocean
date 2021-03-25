@@ -25,14 +25,15 @@ class Board
     private $events;
 
     /**
-     * @ORM\OneToMany(targetEntity=Game::class, mappedBy="board")
+     * @ORM\OneToOne(targetEntity=Game::class, mappedBy="board", cascade={"persist", "remove"})
      */
-    private $games;
+    private $game;
+
+
 
     public function __construct()
     {
         $this->events = new ArrayCollection();
-        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -70,33 +71,22 @@ class Board
         return $this;
     }
 
-    /**
-     * @return Collection|Game[]
-     */
-    public function getGames(): Collection
+    public function getGame(): ?Game
     {
-        return $this->games;
+        return $this->game;
     }
 
-    public function addGame(Game $game): self
+    public function setGame(Game $game): self
     {
-        if (!$this->games->contains($game)) {
-            $this->games[] = $game;
+        // set the owning side of the relation if necessary
+        if ($game->getBoard() !== $this) {
             $game->setBoard($this);
         }
 
-        return $this;
-    }
-
-    public function removeGame(Game $game): self
-    {
-        if ($this->games->removeElement($game)) {
-            // set the owning side to null (unless already changed)
-            if ($game->getBoard() === $this) {
-                $game->setBoard(null);
-            }
-        }
+        $this->game = $game;
 
         return $this;
     }
+
+
 }

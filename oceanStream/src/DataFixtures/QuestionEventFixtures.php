@@ -12,19 +12,20 @@ class QuestionEventFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $category = ['Histoire', 'Géographie', 'Nature', 'Enigme', 'Pollution'];
-        $questionEvents = array();
-        for($i = 0; $i < 20; $i++){
-            $questionEvent = new QuestionEvent();
-            $questionEvent->setNameEvent('Evénement qusetion n°' . $i)
-                ->setDescriptionEvent('Des descriptions pour faire occuper de la place. 
-                    Ceci est le n°' . $i)
-                ->setCategory($category[array_rand($category, 1)])
-                ->setBoard($this->getReference('board_1'));
 
-            $this->setReference('questionEvent_' . $i, $questionEvent);
+        for ($j=0;$j<3;$j++){
+            for($i = 0; $i < 20; $i++){
+                $questionEvent = new QuestionEvent();
+                $questionEvent->setNameEvent('Evenement question n°' . $i)
+                    ->setDescriptionEvent('Des descriptions pour faire occuper de la place. 
+                        Ceci est le n°' . $i)
+                    ->setCategory($category[array_rand($category, 1)])
+                    ->setBoard($this->getReference('board_'.$j));
 
-            array_push($questionEvents, $questionEvent);
-            $manager->persist($questionEvent);
+                $this->setReference('questionEvent_' . $i, $questionEvent);
+
+                $manager->persist($questionEvent);
+            }
         }
 
         $manager->flush();

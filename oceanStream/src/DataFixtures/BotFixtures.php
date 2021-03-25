@@ -11,15 +11,14 @@ class BotFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $bots =  array();
         for($i = 0; $i < 3; $i++){
             $bot = new Bot();
             $bot->setNameBot('Bot n°' . $i)
                 ->setDifficulty(1)
+                ->setIsBotControlled(true)
                 ->addGame($this->getReference('game_' . $i));
 
             $manager->persist($bot);
-            array_push($bots, $bot);
         }
 
         $manager->flush();
