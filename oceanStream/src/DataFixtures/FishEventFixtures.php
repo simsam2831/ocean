@@ -16,6 +16,7 @@ class FishEventFixtures extends Fixture implements DependentFixtureInterface
             for($i = 0; $i < 40; $i++){
                 $fishEvent = new FishEvent();
                 $fishEvent->setNameEvent('Evenement Poisson n°' . $i)
+                    ->setLocation(-1)
                     ->setDescriptionEvent('Des poissons et encore des poissons la vie n\'est-elle pas 
                         belle ?')
                     ->setFishQuantity(rand(0,5))

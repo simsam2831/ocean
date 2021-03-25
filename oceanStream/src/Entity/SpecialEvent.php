@@ -20,26 +20,31 @@ class SpecialEvent extends Event
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isBlooked;
+    private $isBlocked;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $isGoal;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $event_destination;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIsBlooked(): ?bool
+    public function getIsBlocked(): ?bool
     {
-        return $this->isBlooked;
+        return $this->isBlocked;
     }
 
-    public function setIsBlooked(bool $isBlooked): self
+    public function setIsBlocked(bool $isBlocked): self
     {
-        $this->isBlooked = $isBlooked;
+        $this->isBlocked = $isBlocked;
 
         return $this;
     }
@@ -52,6 +57,18 @@ class SpecialEvent extends Event
     public function setIsGoal(bool $isGoal): self
     {
         $this->isGoal = $isGoal;
+
+        return $this;
+    }
+
+    public function getEventDestination(): ?int
+    {
+        return $this->event_destination;
+    }
+
+    public function setEventDestination(?int $event_destination): self
+    {
+        $this->event_destination = $event_destination;
 
         return $this;
     }
