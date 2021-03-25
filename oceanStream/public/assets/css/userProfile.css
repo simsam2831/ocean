@@ -1,6 +1,5 @@
-
-.btn-info {background-image: linear-gradient(to right, #F3904F 0%, #3B4371  51%, #F3904F  100%)}
-.btn-info {
+.btn-modif {background-image: linear-gradient(to right, #F3904F 0%, #3B4371  51%, #F3904F  100%)}
+.btn-modif {
     margin: 10px;
     padding: 15px 45px;
     text-align: center;
@@ -13,9 +12,11 @@
     display: block;
 }
 
-.btn-info:hover {
+.btn-modif:hover {
     background-position: right center;
     color: #fff;
     text-decoration: none;
 }
-         
+
+.btn-supp
+

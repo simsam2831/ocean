@@ -21,7 +21,7 @@
                     <table class="table ">
                         <tbody>
                         <tr>
-                            <th>Id User</th>
+                            <th>Utilisa</th>
                             <td>{{ user.id }}</td>
                         </tr>
                         <tr>
@@ -36,15 +36,20 @@
                             <th>Password</th>
                             <td>{{ user.password }}</td>
                         </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-modif"><a href="{{ path('user_update', {'id': user.id}) }}">Modifier information</a></button>
+                            </td>
+                            <td>
+                                {{ include('user/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
                         </tbody>
-                        <td>
-                            <button type="button" class="btn btn-info"><a href="{{ path('user_update', {'id': user.id}) }}">Modifier information</a></button>
-                        </td>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-    {{ include('user/_delete_form.html.twig') }}
+
 {% endblock %}
