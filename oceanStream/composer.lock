@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "290aabc274de285806ce3764d7c7024a",
+    "content-hash": "7526ea469ddfb60d363e0541ebfe20d4",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2146,8 +2146,6 @@
         },
         {
             "name": "psr/link",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "1.0.0",
             "source": {
                 "type": "git",
@@ -2158,26 +2156,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/link/zipball/eea8e8662d5cd3ae4517c9b864493f59fca95562",
                 "reference": "eea8e8662d5cd3ae4517c9b864493f59fca95562",
-=======
-            "version": "1.1.1",
-=======
-            "version": "1.0.0",
->>>>>>> develop
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/link.git",
-                "reference": "eea8e8662d5cd3ae4517c9b864493f59fca95562"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/php-fig/link/zipball/846c25f58a1f02b93a00f2404e3626b6bf9b7807",
-                "reference": "846c25f58a1f02b93a00f2404e3626b6bf9b7807",
->>>>>>> develop
-=======
-                "url": "https://api.github.com/repos/php-fig/link/zipball/eea8e8662d5cd3ae4517c9b864493f59fca95562",
-                "reference": "eea8e8662d5cd3ae4517c9b864493f59fca95562",
->>>>>>> develop
                 "shasum": ""
             },
             "require": {
@@ -2214,21 +2192,9 @@
                 "rest"
             ],
             "support": {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "source": "https://github.com/php-fig/link/tree/master"
             },
             "time": "2016-10-28T16:06:13+00:00"
-=======
-                "source": "https://github.com/php-fig/link/tree/1.1.1"
-            },
-            "time": "2021-03-11T22:59:13+00:00"
->>>>>>> develop
-=======
-                "source": "https://github.com/php-fig/link/tree/master"
-            },
-            "time": "2016-10-28T16:06:13+00:00"
->>>>>>> develop
         },
         {
             "name": "psr/log",
@@ -8288,15 +8254,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "php": ">=7.3",
-=======
-        "php": "8.0.1",
->>>>>>> develop
-=======
         "php": "^7.4",
->>>>>>> develop
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
