@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Board;
 use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +19,25 @@ class EventRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Event::class);
+    }
+
+    /**
+     * @param Board $board
+     * @param int $location
+     * @return Event Returns an Event object
+     * @throws NonUniqueResultException
+     */
+    public function findByLocation(Board $board, int $location): Event
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.location = :loc')
+            ->andWhere('e.board = :bo')
+            ->setParameter('loc', $location)
+            ->setParameter('bo', $board)
+            ->getQuery()
+            ->setMaxResults(1)
+            ->getOneOrNullResult()
+        ;
     }
 
     // /**

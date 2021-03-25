@@ -26,16 +26,16 @@ class BoardService
 
         $count = 0;
         for($i = 0; $i < 64; $i++){
-            if($i == 0){
+            if($i === 0){
                 ($new_special_events[0])->setLocation($i);
                 $manager->persist($new_special_events[0]);
-            }else if($i == 15){
+            }else if($i === 59){
                 ($new_special_events[3])->setLocation($i);
                 $manager->persist($new_special_events[3]);
-            }else if($i == 32){
+            }else if($i === 32){
                 ($new_special_events[2])->setLocation($i);
                 $manager->persist($new_special_events[2]);
-            }else if($i == 59){
+            }else if($i === 15){
                 ($new_special_events[1])->setLocation($i);
                 $manager->persist($new_special_events[1]);
             }else{
