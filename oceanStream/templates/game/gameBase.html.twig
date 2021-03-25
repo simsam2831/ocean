@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}GameBase !{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/316d042b66.js" crossorigin="anonymous"></script>
+
+    {% block stylesheets %}
+        <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
+    {% endblock %}
+
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+</head>
+
+<style>
+    #question{
+        float : left;
+    }
+    #user{
+        float : right;
+    }
+
+    .carre_fond {
+        position:fixed;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin : auto;
+        background: #2935ba;
+    }
+
+    .carre_choix {
+        position:absolute;
+        left: 80%;
+        top: 80%;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        background: #1b63cd;
+    }
+
+
+</style>
+
+<body>
+<div class="container-fluid">
+
+    <div class="jumbotron">
+        {% block header %}
+            <header>
+                <div class="container overflow-hidden">
+                    <div class="row gx-5">
+                        <div class="col">
+                            {% if app.user %}
+                                <i class="far fa-question-circle fa-3x" id="question"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if app.user %}
+                                <a href="{{ path("user_index") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></p></a>
+                            {% endif %}
+                            {% if not app.user %}
+                                <a href="{{ path("app_login") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+        {% endblock %}
+
+        <br>
+
+        {% block body %}
+            <body>
+                <div class="carre_fond"></div>
+                <div class="carre_choix"></div>
+            </body>
+        {% endblock %}
+
+        <br>
+    </div>
+</div>
+</body>
+
+
+</html>
