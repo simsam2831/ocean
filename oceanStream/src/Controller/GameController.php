@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Bot;
 use App\Entity\Game;
 use App\Form\GameType;
 use App\Form\SelectModeType;
+use App\Form\SelectNbPlayersType;
 use App\Repository\GameRepository;
+use App\Service\BoardService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/game")
@@ -28,7 +32,9 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('select_nb_player', ['game' => $game]);
+            return $this->redirectToRoute('select_nb_players', [
+                'mode' => $game->getMode()
+            ]);
         }
 
         return $this->render('game/select_mode.html.twig', [
@@ -38,21 +44,25 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/select/nb_players", name="select_nb_players", methods={"GET","POST"})
+     * @Route("/{mode}/select/nb_players", name="select_nb_players", methods={"GET","POST"})
      * @param Request $request
-     * @param Game $game
+     * @param string $mode
      * @return Response
      */
-    public function selectNbPlayers(Request $request, Game $game): Response
+    public function selectNbPlayers(Request $request, string $mode): Response
     {
+        $game = new Game();
         $form = $this->createForm(SelectNbPlayersType::class, $game);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('game_create', ['game' => $game]);
+            return $this->redirectToRoute('game_create', [
+                'mode' => $mode,
+                //'nb_players' => $game->getNbPlayers()
+            ]);
         }
 
-        return $this->render('game/select_nb_players.html.twig', [
+        return $this->render('game/select_nb_player.html.twig', [
             'game' => $game,
             'form' => $form->createView(),
         ]);
@@ -71,20 +81,40 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/create", name="game_create", methods={"GET"})
-     * @param Game $game
+     * @Route("/{mode}/create", name="game_create", methods={"GET"})
+     * @param BoardService $boardService
+     * @param string $mode
      * @return Response
      */
-    public function create(Game $game): Response
+    public function create(BoardService $boardService, string $mode): Response
     {
-        $game->setPending(false);
-        $game->setGlobalTurn(1);
-
         $entityManager = $this->getDoctrine()->getManager();
+        $board = $boardService->create($entityManager);
+        $nb_players = 4;
+        $game = new Game();
+        $game->setMode($mode);
+        $game->setNbPlayers($nb_players);
+        $game->setIsPending(false);
+        $game->setGlobalTurn(1);
+        $game->addUser($this->getUser());
+        $game->setBoard($board);
         $entityManager->persist($game);
         $entityManager->flush();
 
-        return $this->redirectToRoute('game_play');
+        for($i = 0; $i < $nb_players-1; $i++)
+        {
+            $bot = new Bot();
+            $bot->setNameBot("Anonyme ".$i);
+            $bot->setDifficulty("controlled");
+            $bot->setIsBotControlled(true);
+            $bot->addGame($game);
+            $entityManager->persist($bot);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('board', [
+            'id' => $game->getId()
+        ]);
     }
 
     /**
