@@ -29,8 +29,6 @@ class Board
      */
     private $game;
 
-
-
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -87,6 +85,4 @@ class Board
 
         return $this;
     }
-
-
 }

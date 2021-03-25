@@ -24,16 +24,16 @@ class QuestionEvent extends Event
      */
     private ?string $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=AnswerProposition::class, mappedBy="questionEvents")
+     */
+    private $answerPropositions;
+
     private const HISTORY = 'Histoire';
     private const GEOGRAPHY = 'Géographie';
     private const NATURE = 'Nature';
     private const ENIGMA = 'Enigme';
     private const POLLUTION = 'Pollution';
-
-    /**
-     * @ORM\OneToMany(targetEntity=AnswerProposition::class, mappedBy="questionEvent", orphanRemoval=true)
-     */
-    private $answerPropositions;
 
     public function __construct()
     {
@@ -73,7 +73,7 @@ class QuestionEvent extends Event
     {
         if (!$this->answerPropositions->contains($answerProposition)) {
             $this->answerPropositions[] = $answerProposition;
-            $answerProposition->setQuestionEvent($this);
+            $answerProposition->addQuestionEvent($this);
         }
 
         return $this;
@@ -82,10 +82,7 @@ class QuestionEvent extends Event
     public function removeAnswerProposition(AnswerProposition $answerProposition): self
     {
         if ($this->answerPropositions->removeElement($answerProposition)) {
-            // set the owning side to null (unless already changed)
-            if ($answerProposition->getQuestionEvent() === $this) {
-                $answerProposition->setQuestionEvent(null);
-            }
+            $answerProposition->removeQuestionEvent($this);
         }
 
         return $this;

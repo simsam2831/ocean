@@ -17,13 +17,15 @@ class AnswerPropositionFixtures extends Fixture implements DependentFixtureInter
             $answerProposition->setFish($this->getReference('fish_' . rand(0, 14)))
                 ->setDescriptionAnswer('Je suis la description n°' . $i)
                 ->setFishQuantity(rand(2,5))
-                ->setQuestionEvent($this->getReference('questionEvent_' . rand(0, 19)))
                 ->setImageAnswer('./assets/img/logo.png');
 
-            if($i < 20){
-                $answerProposition->setIsCorrect(true);
+            if($i < 19){
+                $answerProposition->setIsCorrect(true)
+                    ->addQuestionEvent($this->getReference('questionEvent_' . $i))
+                    ->addQuestionEvent($this->getReference('questionEvent_' . ($i + 1)));
             }else{
-                $answerProposition->setIsCorrect(false);
+                $answerProposition->setIsCorrect(false)
+                    ->addQuestionEvent($this->getReference('questionEvent_' . rand(0, 19)));
             }
 
             $manager->persist($answerProposition);
