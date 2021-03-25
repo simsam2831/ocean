@@ -23,25 +23,18 @@
     }
 
     .carre_fond {
-        position:fixed;
+        width : 50%;
+        padding : 1em;
         left: 50%;
         top: 50%;
-        width: 200px;
-        height: 200px;
-        margin : auto;
-        background: #2935ba;
+        text-align: center;
+        background: #204d74;
+        margin : 0 auto;
+        box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        -webkit-box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        -moz-box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        color : white;
     }
-
-    .carre_choix {
-        position:absolute;
-        left: 80%;
-        top: 80%;
-        width: 150px;
-        height: 150px;
-        margin: auto;
-        background: #1b63cd;
-    }
-
 
 </style>
 
@@ -70,22 +63,16 @@
                     </div>
                 </div>
             </header>
-
-
         {% endblock %}
-
-        <br>
-
-        {% block body %}
-            <body>
-                <div class="carre_fond">
-                    <div class="carre_choix"> </div>
-                </div>
-            </body>
-        {% endblock %}
-
-        <br>
     </div>
+        <br>
+
+    <div class="carre_fond">
+            {% block body %}Je suis dans la div{% endblock %}
+    </div>
+
+
+        <br>
 </div>
 </body>
 
