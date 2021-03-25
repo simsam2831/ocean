@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Connexion{% endblock %}</title>
-    {% block stylesheets %}
-        <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
-    {% endblock %}
+{% extends'base.html.twig'%}
 
-    {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
-    {% endblock %}
-</head>
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+        <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
 <body>
     <div class="container-fluid">
         <div class="jumbotron">
@@ -41,4 +37,4 @@
         </div>
     </div>
 </body>
-</html>
+{% endblock %}
