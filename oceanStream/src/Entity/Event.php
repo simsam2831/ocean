@@ -49,6 +49,11 @@ class Event
      */
     private $tokens;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $location;
+
     public function __construct()
     {
         $this->tokens = new ArrayCollection();
@@ -121,6 +126,18 @@ class Event
                 $token->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLocation(): ?int
+    {
+        return $this->location;
+    }
+
+    public function setLocation(int $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }

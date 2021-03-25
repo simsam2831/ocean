@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnswerPropositionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,15 +40,19 @@ class AnswerProposition
     private $fishQuantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity=QuestionEvent::class, inversedBy="answerPropositions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $questionEvent;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Fish::class, inversedBy="answerPropositions")
      */
     private $fish;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=QuestionEvent::class, inversedBy="answerPropositions")
+     */
+    private $questionEvents;
+
+    public function __construct()
+    {
+        $this->questionEvents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -101,18 +107,6 @@ class AnswerProposition
         return $this;
     }
 
-    public function getQuestionEvent(): ?QuestionEvent
-    {
-        return $this->questionEvent;
-    }
-
-    public function setQuestionEvent(?QuestionEvent $questionEvent): self
-    {
-        $this->questionEvent = $questionEvent;
-
-        return $this;
-    }
-
     public function getFish(): ?Fish
     {
         return $this->fish;
@@ -121,6 +115,30 @@ class AnswerProposition
     public function setFish(?Fish $fish): self
     {
         $this->fish = $fish;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|QuestionEvent[]
+     */
+    public function getQuestionEvents(): Collection
+    {
+        return $this->questionEvents;
+    }
+
+    public function addQuestionEvent(QuestionEvent $questionEvent): self
+    {
+        if (!$this->questionEvents->contains($questionEvent)) {
+            $this->questionEvents[] = $questionEvent;
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionEvent(QuestionEvent $questionEvent): self
+    {
+        $this->questionEvents->removeElement($questionEvent);
 
         return $this;
     }

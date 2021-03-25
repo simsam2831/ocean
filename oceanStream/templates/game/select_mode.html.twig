@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.mode) }}
+        {{ form_widget(form.mode) }}
+    </div>
+
+    <input type="hidden" name="id_user" value="{{ app.user.id }}"/>
+    <button class="btn btn-primary mt-4" type="submit">Suivant</button>
+    {{ form_end(form) }}
+{% endblock %}
