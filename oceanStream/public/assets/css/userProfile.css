@@ -1,0 +1,21 @@
+
+.btn-info {background-image: linear-gradient(to right, #F3904F 0%, #3B4371  51%, #F3904F  100%)}
+.btn-info {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-info:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+         

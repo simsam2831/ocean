@@ -22,7 +22,7 @@
                         </div>
                         <div class="col">
                             {% if app.user %}
-                                <a href="{{ path("user_index") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></a>
+                                <a href="{{ path("user_read", {'id': app.user.id}) }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> {{ app.user.username }}</i></a>
                             {% endif %}
                             {% if not app.user %}
                                 <a href="{{ path("home") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
