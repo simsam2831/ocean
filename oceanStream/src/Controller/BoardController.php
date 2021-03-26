@@ -2,30 +2,63 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Game;
+use App\Entity\Token;
+use App\Repository\EventRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @Route("/game")
- */
 class BoardController extends AbstractController
 {
     /**
-     * @Route("/board", name="board")
-     * @param EntityManagerInterface $manager
-     * @param SessionInterface $session
-     * @param UserInterface $user
+     * @Route("/{id}/{token}/board", name="board")
+     * @param Game $game
+     * @param Token $token
+     * @param EventRepository $eventRepository
      * @return Response
+     * @throws NonUniqueResultException
      */
-    public function index(EntityManagerInterface $manager, SessionInterface $session,UserInterface $user): Response
+    public function index(Game $game, Token $token, EventRepository $eventRepository): Response
     {
-        $board = new BoadService($manager,$session,$user);
+        $eventsToView = array();
+
+        for($i = 0; $i < 64; $i++)
+        {
+            $event = $eventRepository->findByLocation($game->getBoard(), $i);
+            array_push($eventsToView, $event);
+        }
+
         return $this->render('board/index.html.twig', [
-            'board' => createBoardService(),
+            'eventsToView' => $eventsToView,
+            'token' => $token
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/{token}/{rolldice}/board/dice", name="board_dice")
+     * @param Game $game
+     * @param Token $token
+     * @param int $rolldice
+     * @param EventRepository $eventRepository
+     * @return Response
+     * @throws NonUniqueResultException
+     */
+    public function dice(Game $game, Token $token, int $rolldice, EventRepository $eventRepository): Response
+    {
+        $eventsToView = array();
+
+        for($i = 0; $i < 64; $i++)
+        {
+            $event = $eventRepository->findByLocation($game->getBoard(), $i);
+            array_push($eventsToView, $event);
+        }
+
+        return $this->render('board/index.html.twig', [
+            'eventsToView' => $eventsToView,
+            'token' => $token,
+            'rolldice' => $rolldice
         ]);
     }
 }

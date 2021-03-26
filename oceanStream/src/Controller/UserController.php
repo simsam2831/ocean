@@ -17,7 +17,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/", name="user_index",methods={"GET"})
+     * @Route("/", name="user_index", methods={"GET"})
+     * @param UserRepository $userRepository
+     * @return Response
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -27,7 +29,10 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/create", name="user_create",methods={"GET", "POST"})
+     * @Route("/create", name="user_create", methods={"GET","POST"})
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return Response
      */
     public function create(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -60,7 +65,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/read", name="user_read",methods={"GET"})
+     * @Route("/{id}/read", name="user_read", methods={"GET"})
+     * @param User $user
+     * @return Response
      */
     public function read(User $user): Response
     {
@@ -70,7 +77,10 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/update", name="user_update",methods={"GET", "POST"})
+     * @Route("/{id}/update", name="user_update", methods={"GET","POST"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
      */
     public function update(Request $request, User $user): Response
     {
@@ -90,7 +100,10 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="user_delete",methods={"DELETE"})
+     * @Route("/{id}/delete", name="user_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
      */
     public function delete(Request $request, User $user): Response
     {
