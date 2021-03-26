@@ -15,12 +15,12 @@ class BoardService
 
         $template_board_id = 6;
 
-        $old_board = $manager->getRepository(Board::class)->find($template_board_id);
+        $template_board = $manager->getRepository(Board::class)->find($template_board_id);
 
         $eventService = new EventService();
 
-        $new_special_events = $eventService->createSpecialEvent($manager, $old_board, $new_board);
-        $new_not_special_events = $eventService->createNotSpecialEvent($manager, $old_board, $new_board);
+        $new_special_events = $eventService->createSpecialEvent($manager, $template_board, $new_board);
+        $new_not_special_events = $eventService->createNotSpecialEvent($manager, $template_board, $new_board);
 
         shuffle($new_not_special_events);
 

@@ -19,6 +19,7 @@ class FishEventFixtures extends Fixture implements DependentFixtureInterface
                     ->setDescriptionEvent('Des poissons et encore des poissons la vie n\'est-elle pas 
                         belle ?')
                     ->setFishQuantity(rand(0,5))
+                    ->setLocation($i)
                     ->setFish($this->getReference('fish_' . rand(0, 14)))
                     ->setBoard($this->getReference('board_'.$j));
 
