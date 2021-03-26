@@ -1,6 +1,8 @@
-
-.btn-info {background-image: linear-gradient(to right, #F3904F 0%, #3B4371  51%, #F3904F  100%)}
-.btn-info {
+.userProfile{
+    text-align: center;
+}
+.btn-modif {background-image: linear-gradient(to right, #F3904F 0%, #3B4371  51%, #F3904F  100%)}
+.btn-modif {
     margin: 10px;
     padding: 15px 45px;
     text-align: center;
@@ -13,9 +15,91 @@
     display: block;
 }
 
-.btn-info:hover {
+.btn-modif:hover {
     background-position: right center;
     color: #fff;
     text-decoration: none;
 }
-         
+
+.btn-contact {background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%)}
+.btn-contact {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-contact:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.btn-supp {background-image: linear-gradient(to right, #DC2424 0%, #4A569D  51%, #DC2424  100%)}
+.btn-supp {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-supp:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.bg-profile{
+    opacity:0.90 ;
+}
+
+.p-titre{
+    text-align: center;
+    color: white;
+    padding: 1em;
+    font-weight: bold;
+    font-size: xxx-large;
+}
+
+label{
+    color : black;
+    text-align: left;
+}
+
+
+.btn-deco {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
+.btn-deco {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-deco:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.noir{
+    color : black;
+}

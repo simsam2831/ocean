@@ -3,13 +3,13 @@
 {% block title %}Menu{% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ assets('assets/css/menu.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
     <center>
         <div class="menu">
-            <img src="{{ absolute_url(assets('assets/img/logo.png')) }}" alt="Logo">
+            <img src="{{ absolute_url(asset('assets/img/logo.png')) }}" alt="Logo">
             <!--<h1 id="jeuDeLeau">Jeu de l'eau</h1>-->
 
             <span class="back">
@@ -30,7 +30,7 @@
             <br>
             <div class="btn-group-vertical">
 
-                <a type="button" class="btn btn-menu" href="{{ path('home') }}">Nouvelle partie</a>
+                <a type="button" class="btn btn-menu" href="{{ path('select_mode') }}">Nouvelle partie</a>
                 <br>
                 <a type="button" class="btn btn-menu" href="{{ path('home') }}">Charger partie</a>
                 <br>

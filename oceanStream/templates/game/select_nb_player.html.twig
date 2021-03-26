@@ -1,0 +1,16 @@
+{% extends 'game/gameBase.html.twig' %}
+
+{% block title %}Choix joueur{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/nb_players.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="nb_player">
+    {{ form_start(form) }}
+
+    {{ form_end(form) }}
+    </div>
+
+{% endblock %}

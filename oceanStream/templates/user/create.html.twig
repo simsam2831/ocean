@@ -1,15 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/userProfile.css') }}" rel="stylesheet" />
+{% endblock %}
 
 {% block body %}
-    <h1><center>Inscription sur le site</center></h1>
-    <br>
-    {{ form_start(form)}}
-    {{ form_row(form.username, {'label': 'Nom d\'utilisateur','attr' : {'placeholder' : 'Pseudo...'}}) }}
-    {{ form_row(form.email, {'label':'Adresse mail ','attr' : {'placeholder' : 'Adresse mail...'}}) }}
-    {{ form_row(form.password,{'label':'Mot de passe ','attr' : {'placeholder' : 'Mot de passe'}}) }}
 
-    <button type="submit" class ="btn btn-success">S'inscrire !</button>
-    {{ form_end(form) }}
+    <div class="container px-4 bg-profile">
+
+        <div class="jumbotron">
+            <h1 class="p-titre noir"><center>Inscription sur le site</center></h1>
+            <br>
+            {{ form_start(form)}}
+            {{ form_row(form.username, {'label': 'Nom d\'utilisateur','attr' : {'placeholder' : 'Pseudo...'}}) }}
+            {{ form_row(form.email, {'label':'Adresse mail ','attr' : {'placeholder' : 'Adresse mail...'}}) }}
+            {{ form_row(form.password,{'label':'Mot de passe ','attr' : {'placeholder' : 'Mot de passe'}}) }}
+
+            <button type="submit" class ="btn btn-deco">S'inscrire !</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

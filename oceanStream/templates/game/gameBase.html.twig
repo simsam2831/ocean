@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}GameBase !{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/316d042b66.js" crossorigin="anonymous"></script>
+    <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
+
+    {% block stylesheets %}
+        <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" />
+    {% endblock %}
+
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+</head>
+
+<style>
+    #question{
+        float : left;
+    }
+    #user{
+        float : right;
+    }
+
+    .carre_fond {
+        width : 50%;
+        padding : 1em;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        background: #204d74;
+        margin : 0 auto;
+        box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        -webkit-box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        -moz-box-shadow: 1px 0px 51px 16px rgba(116,222,253,0.75);
+        color : white;
+    }
+
+    #nouvelle_partie {
+        text-align: center;
+        padding: 1em ;
+    }
+
+</style>
+
+<body>
+<div class="container-fluid">
+
+    <div class="jumbotron">
+        {% block header %}
+            <header>
+                <div class="container overflow-hidden">
+                    <div class="row gx-5">
+                        <div class="col">
+                            {% if app.user %}
+                                <i class="far fa-question-circle fa-3x" id="question"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if app.user %}
+                                <a href="{{ path("user_index") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Profil</i></p></a>
+                            {% endif %}
+                            {% if not app.user %}
+                                <a href="{{ path("app_login") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+    </div>
+        <br>
+
+    <div id="nouvelle_partie"><h1><b>Nouvelle partie</b></h1></div>
+    <div class="carre_fond">
+            {% block body %}
+            {% endblock %}
+    </div>
+
+
+        <br>
+</div>
+</body>
+
+
+</html>

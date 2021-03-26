@@ -8,43 +8,52 @@
 
 {% block body %}
 
-    <div class="container px-4" id="profile-container">
+    <p class="p-titre"> Bienvenue sur ton profil </p>
+    <div class="container px-4 bg-profile" id="profile-container">
         <div class="row gx-5">
             <div class="col">
                 <div class="p-3 border bg-light userProfile ">
-                    <i class="fas fa-user-circle fa-3x"></i>
-                    <p> {{ user.username }}</p>
+                    <table>
+                        <tr><i class="fas fa-user-circle fa-10x"></i></tr>
+                        <tr><p> {{ user.username }}</p></tr>
+                        <tr><center><button class="btn btn-deco"><a href="{{ path('app_logout') }}">Déconnexion</a></button></center></tr>
+                    </table>
+
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 border bg-light serInfo">
-                    <table class="table ">
+                <div class="p-3 border bg-light userInfo">
+                    <table class="table">
                         <tbody>
                         <tr>
-                            <th>Id User</th>
-                            <td>{{ user.id }}</td>
+                            <td>Utilisateur n°</td>
+                            <td colspan="2">{{ user.id }}</td>
                         </tr>
                         <tr>
-                            <th>Username</th>
-                            <td>{{ user.username }}</td>
+                            <td>Username</td>
+                            <td colspan="2">{{ user.username }}</td>
                         </tr>
                         <tr>
-                            <th>Email</th>
-                            <td>{{ user.email }}</td>
+                            <td>Email</td>
+                            <td colspan="2">{{ user.email }}</td>
                         </tr>
                         <tr>
-                            <th>Password</th>
-                            <td>{{ user.password }}</td>
+                            <td>Password</td>
+                            <td colspan="2">************</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-modif"><a href="{{ path('user_update', {'id': user.id}) }}">Modifier compte</a></button>
+                            <td>{{ include('user/_delete_form.html.twig') }}</td>
+                            <td><button type="button" class="btn btn-contact"><a href="{{ path('contact') }}">Nous contacter</a></button></td>
+                            </td>
                         </tr>
                         </tbody>
-                        <td>
-                            <button type="button" class="btn btn-info"><a href="{{ path('user_update', {'id': user.id}) }}">Modifier information</a></button>
-                        </td>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-    {{ include('user/_delete_form.html.twig') }}
+
 {% endblock %}

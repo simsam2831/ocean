@@ -17,6 +17,7 @@ class QuestionEventFixtures extends Fixture implements DependentFixtureInterface
             for($i = 0; $i < 20; $i++){
                 $questionEvent = new QuestionEvent();
                 $questionEvent->setNameEvent('Evenement question n°' . $i)
+                    ->setLocation(-1)
                     ->setDescriptionEvent('Des descriptions pour faire occuper de la place. 
                         Ceci est le n°' . $i)
                     ->setLocation($i)

@@ -11,7 +11,7 @@ class RollDiceService
 {
     public function roll(EntityManagerInterface $manager, Token $token, Game $game): int
     {
-        $rolled = rand(1,6);
+        $rolled = rand(2,12);
         $current_location = $token->getEvent()->getLocation();
         if(($current_location + $rolled) > 63) {
             $new_location = $current_location + $rolled - 64;
@@ -25,7 +25,9 @@ class RollDiceService
             'location' => $new_location
         ]);
 
-        $token->setEvent($new_event);
+        $token->setEvent($new_event[0]);
+        $manager->persist($token);
+        $manager->flush();
 
         return $rolled;
     }
