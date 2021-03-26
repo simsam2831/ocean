@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Bot;
 use App\Entity\Game;
+use App\Entity\Token;
 use App\Form\GameType;
 use App\Form\SelectModeType;
 use App\Form\SelectNbPlayersType;
+use App\Repository\EventRepository;
 use App\Repository\GameRepository;
+use App\Repository\TokenRepository;
 use App\Service\BoardService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,24 +72,51 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/", name="game_index", methods={"GET"})
-     * @param GameRepository $gameRepository
-     * @return Response
+     * @Route("/select/token", name="select_token", methods={"GET"})
+     * @param TokenRepository $tokenRepository
+     * @return array
      */
-    public function index(GameRepository $gameRepository): Response
+    public function select_token(TokenRepository $tokenRepository): array
     {
-        return $this->render('game/index.html.twig', [
-            'games' => $gameRepository->findAll(),
+        $tokens = $tokenRepository->findBy([
+            'family' => 'classique'
         ]);
+
+        $user = $this->getUser();
+        $user->addToken($tokens[0]);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $tokens;
+
+        /*$game = new Game();
+        $form = $this->createForm(SelectModeType::class, $game);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('select_nb_players', [
+                'mode' => $game->getMode()
+            ]);
+        }
+
+        return $this->render('game/select_token.html.twig', [
+            'user' => $user,
+            'bots' => $bots,
+            'form' => $form->createView(),
+        ]);*/
     }
 
     /**
      * @Route("/{mode}/create", name="game_create", methods={"GET"})
+     * @param EventRepository $eventRepository
+     * @param TokenRepository $tokenRepository
      * @param BoardService $boardService
      * @param string $mode
      * @return Response
      */
-    public function create(BoardService $boardService, string $mode): Response
+    public function create(EventRepository $eventRepository, TokenRepository $tokenRepository, BoardService $boardService, string $mode): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $board = $boardService->create($entityManager);
@@ -112,8 +142,16 @@ class GameController extends AbstractController
             $entityManager->flush();
         }
 
+        $tokens = $this->select_token($tokenRepository);
+        $eventLocation = $eventRepository->findBy(['location' => 0, 'board' => $board]);
+        $tokens[0]->setEvent($eventLocation[0]);
+
+        $entityManager->persist($tokens[0]);
+        $entityManager->flush();
+
         return $this->redirectToRoute('board', [
-            'id' => $game->getId()
+            'id' => $game->getId(),
+            'token' => $tokens[0]->getId()
         ]);
     }
 
