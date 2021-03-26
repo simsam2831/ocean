@@ -1,27 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ocean Stream{% endblock %}
+{% block title %}Hello BoardController!{% endblock %}
 
 {% block body %}
-<div>
-    {% if rolldice is defined %}
-        <div>Dés : {{ rolldice }}</div>
-    {% endif %}
-    <a href="{{ path('dice', {'id': token.id}) }}">Lancer dés</a>
-    <table class="table table-hover">
-        <tbody>
-        {% for row in eventsToView | batch(8) %}
-            <tr class="table-active">
-                {% for event in row %}
-                    <td>{{ event.nameEvent }}
-                        {% if event is same as(token.event) %}
-                             : {{ token.color }}
-                        {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+<div class="bg-board">
+
 </div>
+
 {% endblock %}
