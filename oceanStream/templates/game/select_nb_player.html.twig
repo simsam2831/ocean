@@ -1,6 +1,6 @@
 {% extends 'game/gameBase.html.twig' %}
 
-{% block title %}Choix joueur{% endblock %}
+{% block title %}Choix joueurs{% endblock %}
 
 {% block stylesheets %}
     <link href="{{ asset('assets/css/nb_players.css') }}" rel="stylesheet"/>
@@ -10,7 +10,10 @@
     <div class="nb_player">
     {{ form_start(form) }}
 
+        {{ form_label(form.nbPlayers) }}
+        {{ form_widget(form.nbPlayers) }}
+
+        <button class="btn btn-primary mt-4" type="submit">Suivant</button>
     {{ form_end(form) }}
     </div>
-
 {% endblock %}

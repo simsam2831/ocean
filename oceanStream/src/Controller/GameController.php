@@ -61,7 +61,7 @@ class GameController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('game_create', [
                 'mode' => $mode,
-                //'nb_players' => $game->getNbPlayers()
+                'nb_players' => $game->getNbPlayers()
             ]);
         }
 
@@ -90,37 +90,22 @@ class GameController extends AbstractController
         $entityManager->flush();
 
         return $tokens;
-
-        /*$game = new Game();
-        $form = $this->createForm(SelectModeType::class, $game);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('select_nb_players', [
-                'mode' => $game->getMode()
-            ]);
-        }
-
-        return $this->render('game/select_token.html.twig', [
-            'user' => $user,
-            'bots' => $bots,
-            'form' => $form->createView(),
-        ]);*/
     }
 
     /**
-     * @Route("/{mode}/create", name="game_create", methods={"GET"})
+     * @Route("/{mode}/{nb_players}/create", name="game_create", methods={"GET"})
      * @param EventRepository $eventRepository
      * @param TokenRepository $tokenRepository
      * @param BoardService $boardService
      * @param string $mode
+     * @param int $nb_players
      * @return Response
      */
-    public function create(EventRepository $eventRepository, TokenRepository $tokenRepository, BoardService $boardService, string $mode): Response
+    public function create(EventRepository $eventRepository, TokenRepository $tokenRepository, BoardService $boardService, string $mode, int $nb_players): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $board = $boardService->create($entityManager);
-        $nb_players = 4;
+
         $game = new Game();
         $game->setMode($mode);
         $game->setNbPlayers($nb_players);
@@ -205,16 +190,5 @@ class GameController extends AbstractController
         }
 
         return $this->redirectToRoute('game_index');
-    }
-
-    /**
-     * @Route("/gameBase", name="gameBase")
-     * @param GameRepository $gameRepository
-     *
-     */
-    public function viewbase(GameRepository $gameRepository): Response
-    {
-        return $this->render('game/gameBase.html.twig', [
-        ]);
     }
 }
