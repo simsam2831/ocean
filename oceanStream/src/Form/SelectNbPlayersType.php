@@ -19,7 +19,8 @@ class SelectNbPlayersType extends AbstractType
                     3 => 3,
                     4 => 4
                 ],
-                'expanded' => true
+                'expanded' => true,
+                'label' =>  'Nombre de joueurs'
             ])
         ;
     }
