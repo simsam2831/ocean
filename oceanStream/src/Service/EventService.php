@@ -61,8 +61,6 @@ class EventService
             'board' => $old_board
         ]);
 
-        $answerPropositions = $manager->getRepository(AnswerProposition::class)->findAll();
-
         $questions_fish = array();
         foreach ($events as $event)
         {
@@ -97,7 +95,6 @@ class EventService
                 }
             }
         }
-
         return $questions_fish;
     }
 }

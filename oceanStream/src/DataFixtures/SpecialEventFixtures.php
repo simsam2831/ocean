@@ -18,6 +18,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
                 ->setDescriptionEvent('Je suis la case départ&arrivé !')
                 ->setNameEvent('Case départ')
                 ->setIsBlooked(false)
+                ->setLocation(0)
                 ->setIsGoal(false);
 
             $manager->persist($start);
@@ -28,6 +29,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
                         Mais beaucoup y perde la vie en s\'aventurant dans ces eaux. Peut-être vous êtes le suivant ?')
                 ->setNameEvent('Triangle des Bermudes')
                 ->setIsBlooked(true)
+                ->setLocation(59)
                 ->setIsGoal(false);
 
             $manager->persist($bermudes);
@@ -38,6 +40,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
                         merveille de la nature ?')
                 ->setNameEvent('La Grande Barrière de Corail')
                 ->setIsBlooked(true)
+                ->setLocation(32)
                 ->setIsGoal(false);
 
             $manager->persist($gbc);
@@ -48,6 +51,7 @@ class SpecialEventFixtures extends Fixture implements DependentFixtureInterface
                         Un raccourci ?')
                 ->setNameEvent('Tout droit vers l\'aventure !')
                 ->setIsBlooked(false)
+                ->setLocation(15)
                 ->setIsGoal(false);
 
             $manager->persist($roadToAdventure);

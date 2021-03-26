@@ -19,6 +19,7 @@ class QuestionEventFixtures extends Fixture implements DependentFixtureInterface
                 $questionEvent->setNameEvent('Evenement question n°' . $i)
                     ->setDescriptionEvent('Des descriptions pour faire occuper de la place. 
                         Ceci est le n°' . $i)
+                    ->setLocation($i)
                     ->setCategory($category[array_rand($category, 1)])
                     ->setBoard($this->getReference('board_'.$j));
 

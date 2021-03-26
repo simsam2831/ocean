@@ -9,21 +9,23 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class RollDiceService
 {
-    public function roll(EntityManagerInterface $manager, Token $token, Game $game)
+    public function roll(EntityManagerInterface $manager, Token $token, Game $game): int
     {
         $rolled = rand(1,6);
         $current_location = $token->getEvent()->getLocation();
-        if(($current_location + $rolled) > 63)
-        {
-            $new_location = $current_location + $rolled - 63;
+        if(($current_location + $rolled) > 63) {
+            $new_location = $current_location + $rolled - 64;
+        }
+        else{
+            $new_location = $current_location + $rolled;
         }
 
-        $new_location = $manager->getRepository(Event::class)->findBy([
+        $new_event = $manager->getRepository(Event::class)->findBy([
             'board' => $game->getBoard(),
-            'location' =>  + $rolled
+            'location' => $new_location
         ]);
 
-        $token->setEvent();
+        $token->setEvent($new_event);
 
         return $rolled;
     }
