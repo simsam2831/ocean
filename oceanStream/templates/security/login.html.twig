@@ -3,12 +3,12 @@
 {% block title %}Connexion{% endblock %}
 
 {% block stylesheets %}
-        <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/userProfile.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
 <body>
-    <div class="container-fluid">
+    <div class="container px-4 bg-profile">
         <div class="jumbotron">
             <form method="post">
                 {% if error %}
@@ -21,15 +21,15 @@
                     </div>
                 {% endif %}
 
-                <h1 class="h3 mb-3 font-weight-normal"><center>Connexion</center></h1>
-                <label for="inputEmail">Email</label>
+                <h1 class="h3 mb-3 font-weight-normal p-titre noir"><center>Connexion</center></h1>
+                <label for="inputEmail" class="noir">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword" class="noir">Password</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" required>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <br>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Connexion</button>
+                <button class="btn btn-deco" type="submit">Connexion</button>
                 <br>
                 <center><p>Pas encore de compte ? <a href="{{ path("user_create") }}">Créer un compte</a> </p>
                 </center>

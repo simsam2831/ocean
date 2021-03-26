@@ -1,4 +1,9 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+    {{ form_row(form.username,{'attr':{'class':'label'}}) }}
+    {{ form_row(form.email,{'attr':{'class':'label'}}) }}
+    {{ form_row(form.password,{'attr':{'class':'label'}}) }}
+
+    <button class="btn btn-modif">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}
