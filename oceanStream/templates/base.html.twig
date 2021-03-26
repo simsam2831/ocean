@@ -10,42 +10,25 @@
     {% block stylesheets %}
     {% endblock %}
 </head>
-<div class="jumbotron">
-    {% block header %}
+<body class = "bg">
+{% block header %}
     <header>
-        <div class="container overflow-hidden">
+        <div class="container overflow-hidden" id="header">
             <div class="row gx-5">
                 <div class="col">
-                    {% if app.user %}
-                        <i class="far fa-question-circle fa-3x" id="question"></i>
-                    {% endif %}
+                    <p><i class="far fa-question-circle fa-3x" id="question"> Information</i></p>
                 </div>
                 <div class="col">
                     {% if app.user %}
-                        <a href="{{ path("user_index") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x"
-                                                                                      id="user"> Profil</i></p></a>
+                        <a href="{{ path("user_read", {'id': app.user.id}) }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> {{ app.user.username }}</i></a>
                     {% endif %}
                     {% if not app.user %}
-                        <a href="{{ path("app_login") }}"><p class="text-primary"><i class="fas fa-user-circle fa-3x"
-                                                                                     id="user"> Se connecter</i></p></a>
+                        <a href="{{ path("app_login") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Se connecter</i></p></a>
                     {% endif %}
-
                 </div>
             </div>
         </div>
-        <div class="col">
-            {% if app.user %}
-                <a href="{{ path("user_read", {'id': app.user.id}) }}" id="header"><p><i
-                                class="fas fa-user-circle fa-3x" id="user"> {{ app.user.username }}</i></a>
-            {% endif %}
-            {% if not app.user %}
-                <a href="{{ path("app_login") }}" id="header"><p><i class="fas fa-user-circle fa-3x" id="user"> Se
-                            connecter</i></p></a>
-            {% endif %}
-        </div>
-</div>
-</div>
-</header>
+    </header>
 {% endblock %}
 
 <br>
