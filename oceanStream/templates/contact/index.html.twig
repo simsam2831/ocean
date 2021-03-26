@@ -2,9 +2,20 @@
 
 {% block title %}Contact{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/userProfile.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
 
-    <h1>Nous contacter</h1>
+<div class="container px-4 bg-profile">
+
+    <div class="jumbotron">
+        <h1 class="p-titre noir"><center>Nous contacter</center></h1>
+        <br>
 
     {{ form(contactForm) }}
+
+    </div>
+</div>
 {% endblock %}
